@@ -10,10 +10,12 @@ import ProtectedRoute from './components/ProtectedRoute'
 const App = () => (
   <Router>
     <Routes>
+      {/* Public Route for Home */}
+      <Route path="/" element={<Home />} />
+      
       {/* Protected Routes */}
-      <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-      <Route path="/jobs" element={<ProtectedRoute><Jobs /></ProtectedRoute>} />
-      <Route path="/jobs/:id" element={<ProtectedRoute><JobItemDetails /></ProtectedRoute>} />
+      <Route path="/jobs" element={<ProtectedRoute element={<Jobs />} />} />
+      <Route path="/jobs/:id" element={<ProtectedRoute element={<JobItemDetails />} />} />
       
       {/* Public Routes */}
       <Route path="/login" element={<Login />} />
@@ -25,5 +27,6 @@ const App = () => (
 )
 
 export default App
+
 
 
